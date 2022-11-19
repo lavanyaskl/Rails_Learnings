@@ -1,0 +1,7 @@
+<%= form_with url: "/articles", method: :post do |form| %>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+    <%= form.label :body %>
+    <%= form.text_field :body %>
+    <%= form.submit %>
+<% end %>
