@@ -1,3 +1,11 @@
+<% flash.each do |type, msg| %>
+    <div class = "flash-notice alert alert-<%= type.to_s == 'error' ? 'danger' : type %>">
+      <%= msg %>
+    </div>
+<% end %>
+
+
+
 <%= form_with url: "/articles", method: :post do |form| %>
     <%= form.label :title %>
     <%= form.text_field :title %>
@@ -5,3 +13,5 @@
     <%= form.text_field :body %>
     <%= form.submit %>
 <% end %>
+
+<%=link_to "Back", articles_path %>

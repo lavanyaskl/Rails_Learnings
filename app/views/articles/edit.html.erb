@@ -1,7 +1,9 @@
-<%= form_with url: articles_path(@article.id), method: :put do |form| %>
+<%= form_with url: article_path(@article), method: :put do |form| %>
     <%= form.label :title %>
     <%= form.text_field :title, value: @article.title %>
     <%= form.label :body %>
     <%= form.text_field :body, value: @article.body %>
     <%= form.submit %>
 <% end %>
+
+<%=link_to "Back", articles_path %>

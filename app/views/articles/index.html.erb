@@ -1,4 +1,18 @@
-<h1> Articles </h1>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<% flash.each do |type, msg| %>
+    <div class = "flash-notice alert alert-<%= type.to_s == 'error' ? 'danger' : type %>">
+      <%= msg %>
+    </div>
+ <% end %>
+ 
+ <h1> Articles </h1>
+ <h3> Hi, <%= @user.name %> </h3>
+
+ <%= link_to "Create Article", new_article_path %>
+ <br>
 
 <% @articles.each do |article| %>
     <b> id: </b>
@@ -7,5 +21,10 @@
     <%= article.title %>
     <b> Body: </b>
     <%= article.body %>
+    <%= link_to "View", article_path(article) %>
+    <%= link_to "Edit", edit_article_path(article) %>
+    <%= button_to "delete", article_path(article), :method => :delete %>
     <br>
 <% end %>
+
+<%= button_to "Logout", logout_path, method: :delete %>

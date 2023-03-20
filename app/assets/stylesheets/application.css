@@ -16,6 +16,10 @@
  body {
    padding: 10px;
  }
+ 
+form label {
+  width: 10%;
+}
 
  .flash-notice {
     margin-top: 10px;
